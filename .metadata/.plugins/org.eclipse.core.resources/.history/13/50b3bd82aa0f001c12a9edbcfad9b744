@@ -1,0 +1,102 @@
+package com.crud.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.crud.entity.BeanPojo;
+import com.crud.exception.ResourceNotFoundException;
+import com.crud.repo.JpaRepo;
+
+@org.springframework.stereotype.Service
+public class ServiceImpl implements Service {
+
+	@Autowired
+	private JpaRepo repo;
+
+	@Override
+	public List<BeanPojo> getUser() {
+		return repo.findAll();
+	}
+
+	@Override
+	public BeanPojo getUserById(int id) {
+
+		return repo.findById(id).orElseThrow(() -> new ResourceNotFoundException("BeanPojo", "id", id));
+	}
+
+	@Override
+	public List<BeanPojo> getUserByName(String name) {
+		List<BeanPojo> exist = repo.findByName(name);
+		if (!exist.isEmpty() || exist == null) {
+			repo.findByName(name);
+		} else {
+			throw new ResourceNotFoundException("BeanPojo", "name", name);
+		}
+		return exist;
+	}
+
+	@Override
+	public Page<BeanPojo> getUserByPincode(String pincode, PageRequest page) {
+		return repo.findByPincode(pincode, page);
+	}
+
+	@Override
+	public BeanPojo saveUser(BeanPojo bean) {
+
+		return repo.save(bean);
+	}
+
+	@Override
+	public List<BeanPojo> saveUsers(List<BeanPojo> bean) {
+		return repo.saveAll(bean);
+	}
+
+	@Override
+	public void deleteUserById(int id) {
+		repo.findById(id).orElseThrow(() -> new ResourceNotFoundException("BeanPojo", "id", id));
+		repo.deleteById(id);
+	}
+
+	@Override
+	public void deleteUserByName(String name) {
+		List<BeanPojo> exist = repo.findByName(name);
+		repo.deleteAll(exist);
+
+	}
+
+	@Override
+	public BeanPojo update(BeanPojo bean, int id) {
+		BeanPojo userExist = repo.findById(id).orElseThrow(() -> new ResourceNotFoundException("BeanPojo", "id", id));
+		userExist.setName(bean.getName());
+		userExist.setAddress(bean.getAddress());
+		userExist.setMobile(bean.getMobile());
+		userExist.setPincode(bean.getPincode());
+		userExist.setSurname(bean.getSurname());
+		repo.save(userExist);
+		return userExist;
+	}
+
+	@Override
+	public void init() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String saveFile(MultipartFile file) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Resource loadFile(String fileName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

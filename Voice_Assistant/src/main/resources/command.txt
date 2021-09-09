@@ -1,0 +1,8 @@
+open google
+exit google
+
+open facebook
+exit facebook
+
+open spring
+exit spring

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;User.java&apos; to &apos;export_csv/src/main/java/com.export.csv.entity&apos;&#x0D;&#x0A;- Original project: &apos;springboot-crud-restful-webservices&apos;&#x0D;&#x0A;- Destination element: &apos;export_csv/src/main/java/com.export.csv.entity&apos;&#x0D;&#x0A;- Original element: &apos;com.export.entity.User.java&apos;" description="Copy compilation unit" destination="=export_csv/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.export.csv.entity" element1="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.export.entity{User.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1616867534682" units="1" version="1.0"/>
+</session>

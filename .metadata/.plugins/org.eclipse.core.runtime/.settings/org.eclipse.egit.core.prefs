@@ -1,0 +1,4 @@
+GitRepositoriesView.GitDirectories=C\:\\workspace\\labeasy\\.git;C\:\\workspace\\portal\\.git;C\:\\Lab\\.git;C\:\\workspace\\Labeasy\\.git;C\:\\workspace\\Springboot-Todo\\.git;
+GitRepositoriesView.GitDirectories.relative=labeasy\\.git;portal\\.git;C\:\\Lab\\.git;Labeasy\\.git;Springboot-Todo\\.git;
+core_autoIgnoreDerivedResources=false
+eclipse.preferences.version=1
